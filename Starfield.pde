@@ -36,17 +36,20 @@ class Star
   }
   void move()
   {
+    //moves the ball relative to its speed
    xPos += ((float)Math.cos(direction))*speed;
    yPos += ((float)Math.sin(direction))*speed;
   }
   void show()
   {
-    size = dist(xPos, yPos, height*0.5, width*0.5);
+    //increases ball size as it gets closer to the edge
+    size = dist(xPos, yPos, height*0.5, width*0.5); 
     fill(myColor);
     ellipse(xPos, yPos, size/4,size/4);
   }
   void reset()
   {
+    // checks if object goes outside screen and resets it
     if (xPos > 500)
     {
       xPos = height/2;
@@ -71,6 +74,7 @@ class Star
   }
 }
 class oddBall extends Star
+//ufo
 {
   oddBall()
   {
@@ -84,6 +88,7 @@ class oddBall extends Star
     speed = 5;
   }
   void reset()
+  //changes its direction if it is going outside of the screen
   {
     if (xPos > 500)
     {
@@ -101,6 +106,7 @@ class oddBall extends Star
     {
       direction = (float)Math.random()*361;
     }
+    // checks if object goes outside screen and resets it
     if (yPos < -20)
     {
       xPos = 50;
