@@ -3,10 +3,11 @@ void setup()
 {
   size (500,500);
   galaxy = new Star[100];
-  for(int i = 0; i < galaxy.length; i++)
+  for(int i = 0; i < galaxy.length - 1; i++)
   {
     galaxy[i] = new Star();
   }
+  galaxy[galaxy.length-1] = new oddBall();
 }
 void draw()
 {
@@ -23,14 +24,15 @@ class Star
   float xPos, yPos;
   float direction, speed;
   float size = 10;
-  int myColor = color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
+  int myColor = color(0,0,0);
   float helper = 0;
   Star()
   {
     xPos = height/2;
     yPos = width/2;
-    speed = (float)Math.random()*5;
+    speed = (float)(Math.random()*5)+5;
     direction = (float)Math.random()*361;
+    myColor = color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
   }
   void move()
   {
@@ -66,5 +68,58 @@ class Star
       yPos = width/2;
     }
     
+  }
+}
+class oddBall extends Star
+{
+  oddBall()
+  {
+    myColor = color(100,100,100);
+  }
+  void show()
+  {
+    fill(myColor);
+    circle(xPos,yPos,50);
+    ellipse(xPos, yPos+10,100, 30);
+    speed = 5;
+  }
+  void reset()
+  {
+    if (xPos > 500)
+    {
+      direction = (float)Math.random()*361;
+    }
+    else if (yPos > 500)
+    {
+      direction = (float)Math.random()*361;
+    }
+    else if (xPos < 0)
+    {
+      direction = (float)Math.random()*361;
+    }
+    else if (yPos < 0)
+    {
+      direction = (float)Math.random()*361;
+    }
+    if (yPos < -20)
+    {
+      xPos = 50;
+      yPos = 50;
+    }
+    if (xPos < -40)
+    {
+      xPos = 50;
+      yPos = 50;
+    }
+    if (yPos > 520)
+    {
+      xPos = 450;
+      yPos = 450;
+    }
+    if (xPos > 540)
+    {
+      xPos = 450;
+      yPos = 450;
+    }
   }
 }
