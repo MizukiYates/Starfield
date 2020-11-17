@@ -49,26 +49,30 @@ class Star
   }
   void reset()
   {
-    // checks if object goes outside screen and resets it
+    // checks if object goes outside screen and resets it and chooses a new direction if it is
     if (xPos > 500)
     {
       xPos = height/2;
       yPos = width/2;
+      direction = (float)Math.random()*361;
     }
     else if (yPos > 500)
     {
       xPos = height/2;
       yPos = width/2;
+      direction = (float)Math.random()*361;
     }
     else if (xPos< 0)
     {
       xPos = height/2;
       yPos = width/2;
+      direction = (float)Math.random()*361;
     }
     else if (yPos < 0)
     {
       xPos = height/2;
       yPos = width/2;
+      direction = (float)Math.random()*361;
     }
     
   }
