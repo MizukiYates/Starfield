@@ -113,23 +113,19 @@ class oddBall extends Star
     // checks if object goes outside screen and resets it
     if (yPos < -20)
     {
-      xPos = 50;
-      yPos = 50;
+      yPos = 20;
     }
     if (xPos < -40)
     {
-      xPos = 50;
-      yPos = 50;
+      xPos = 20;
     }
-    if (yPos > 520)
+    if (yPos > 520) 
     {
-      xPos = 450;
-      yPos = 450;
+      yPos = 480;
     }
     if (xPos > 540)
     {
-      xPos = 450;
-      yPos = 450;
+      xPos = 480;
     }
   }
 }
